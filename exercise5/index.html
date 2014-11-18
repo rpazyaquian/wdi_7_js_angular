@@ -5,9 +5,17 @@
 <title>Angular Exercise 5</title>
 <script src="bower_components/angular/angular.js"></script>
 </head>
-<body>
+<body ng-app='Exercise5'>
 
 <p>Create a list of titles using data from the API</p>
+
+<div class="container" ng-controller="MainCtrl">
+  <ul>
+      <li ng-repeat="title in titles">{{ title.name }}</li>
+  </ul>
+</div>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>

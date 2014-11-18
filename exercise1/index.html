@@ -5,9 +5,14 @@
 <title>Angular Exercise 1</title>
 <script src="bower_components/angular/angular.js"></script>
 </head>
-<body>
+<body ng-app>
 
 <p>Create a simple calulator that allows you to add two numbers (hint you may need to use number inputs)</p>
+
+<p><input type="number" ng-model="calculator.x"></p>
+<p><input type="number" ng-model="calculator.y"></p>
+
+<h1 ng-init="calculator = {x: 0, y: 0}">{{ calculator.x }} + {{ calculator.y }} = {{ calculator.x + calculator.y }}</h1>
 
 </body>
 </html>

@@ -9,13 +9,14 @@ angular.module('Demo').controller('MainCtrl', function($scope) {
     $scope.greeting = 'Hello';
 
     $scope.person = {
-        firstName: 'Dan',
-        lastName: 'Johnson'
+        firstName: 'Rebecca',
+        lastName: 'Paz'
     };
 
     // update scope properties using $watch
     var redFruits = ['apple', 'cherry', 'strawberry'];
     var greenFruits = ['kiwi', 'avocado', 'honeydew'];
+    var blueFruits = ['taro', 'blueberry', 'raisins']
 
     $scope.favFruits = [];
 
@@ -28,6 +29,10 @@ angular.module('Demo').controller('MainCtrl', function($scope) {
     		case 'green':
     			$scope.favFruits = greenFruits;
     			break;
+
+            case 'blue':
+                $scope.favFruits = blueFruits;
+                break;
 
     		default:
     			$scope.favFruits = [];

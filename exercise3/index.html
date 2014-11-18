@@ -5,7 +5,7 @@
 <title>Angular Exercise 3</title>
 <script src="bower_components/angular/angular.js"></script>
 </head>
-<body>
+<body ng-app='Cart'>
 
 <ol>
 	<li>Create a shopping cart structure in your controller and then list the items using ng-repeat so they match the format below. Hint: there's a filter in angular to help with currencies!</li>
@@ -15,6 +15,23 @@
 <ul>
 	<li>4 items with the name apple will cost $2.50</li>
 </ul>
+
+
+
+<div ng-controller="MainCtrl">
+
+  <div class="form-group">
+      <input type="text" ng-model="search" placeholder="Search">
+  </div>
+
+  <ul>
+    <li ng-repeat='item in items | filter:search'>An item with the name {{ item.name }} will cost {{ item.price | currency:$:2 }}</li>
+  </ul>
+
+</div>
+
+
+<script src='js/app.js'></script>
 
 </body>
 </html>

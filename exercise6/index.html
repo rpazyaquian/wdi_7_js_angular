@@ -5,9 +5,33 @@
 <title>Angular Exercise 6</title>
 <script src="bower_components/angular/angular.js"></script>
 </head>
-<body>
+<body ng-app='Exercise6'>
 
 <p>Add in create, update, and destroy functionality for skills</p>
+
+<div class="container" ng-controller="MainCtrl">
+
+  <ul>
+      <li ng-repeat="title in titles">
+        {{ title.name }}
+        <button ng-click="populateForm(title)">Edit</button>
+        <button ng-click="deleteTitle(title)">Delete</button>
+      </li>
+  </ul>
+
+  <form role="form" name="upsertTitleForm" ng-submit="upsertTitle(title)" novalidate>
+
+    <div class="form-group">
+      <label for="name">Title Name</label>
+      <input type="text" class="form-control" id="name" ng-model="title.name" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" ng-disabled="upsertTitleForm.$invalid">Submit</button>
+  </form>
+
+</div>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>

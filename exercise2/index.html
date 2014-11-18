@@ -5,9 +5,18 @@
 <title>Angular Exercise 2</title>
 <script src="bower_components/angular/angular.js"></script>
 </head>
-<body>
+<body ng-app="Calculator">
 
-<p>Improve your calculator from exercise 1 using a controller and $watch</p>
+  <p>Improve your calculator from exercise 1 using a controller and $watch/$watchGroup</p>
+
+  <div id="app" ng-controller='MainCtrl'>
+    <p><input type="number" ng-model="x"></p>
+    <p><input type="number" ng-model="y"></p>
+
+    <h1>{{ x }} + {{ y }} = {{ result }}</h1>
+  </div>
+
+  <script src="js/app.js"></script>
 
 </body>
 </html>
