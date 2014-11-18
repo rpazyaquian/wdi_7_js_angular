@@ -1,0 +1,32 @@
+<div class="container" ng-controller="TitlesCtrl">
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="title in titles">
+      <td>{{ title.id }}</td>
+      <td>{{ title.name }}</td>
+      <td>
+        <button ng-click="populateForm(title)">Edit</button>
+      </td>
+      <td>
+        <button ng-click="deleteTitle(title)">Delete</button>
+      </td>
+    </tr>
+  </table>
+
+  <form role="form" name="upsertTitleForm" ng-submit="upsertTitle(title)" novalidate>
+
+    <div class="form-group">
+      <label for="name">Title Name</label>
+      <input type="text" class="form-control" id="name" ng-model="title.name" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" ng-disabled="upsertTitleForm.$invalid">Submit</button>
+  </form>
+
+</div>
