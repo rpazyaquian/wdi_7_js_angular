@@ -9,3 +9,19 @@ angular.module('Demo').filter('capitalize', function() {
         }
     };
 });
+
+// could you also write it like this:
+
+// var capitalizeString = function(string) {
+//   if (string) {
+//     return string[0].toUpperCase() + string.slice(1);
+//   }
+// }
+
+// then
+
+// angular.module('Demo').filter('capitalize', function() {
+//     return capitalizeString(param);
+// });
+
+// ?

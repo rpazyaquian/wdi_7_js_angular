@@ -5,12 +5,18 @@
 <title>Angular Exercise 8</title>
 <script src="bower_components/angular/angular.js"></script>
 </head>
-<body>
+<body ng-app="Exercise8">
 
 <ol>
-	<li>Create a custom filter that will capitalize the first letter of each word</li>
+	<li>Create a custom filter</li>
 	<li>Write unit tests for your new filter</li>
 </ol>
+
+<input type="text" ng-model="words">
+
+<h1>{{ words | rot13 | rot13 }}</h1>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>

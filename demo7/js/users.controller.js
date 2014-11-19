@@ -5,6 +5,17 @@ angular.module('Demo').controller('UsersCtrl', function($scope, $http, TitleFact
   $scope.skills = SkillFactory.skills;
   $scope.users = UserFactory.users;
 
+  $scope.getCheckedSkills = function() {
+    var currentUserSkills = $scope.skills;
+    var checkedSkills = currentUserSkills.filter(function(index) {
+      return index.checked == true;
+    });
+    var returnedSkills = checkedSkills.map(function(skill){
+      return skill.id;
+    });
+    return returnedSkills;
+  }
+
   $scope.userHasSkill = function(skill) {
     var skill_id = skill.id;
     var skills = $scope.user.skills;
@@ -40,18 +51,34 @@ angular.module('Demo').controller('UsersCtrl', function($scope, $http, TitleFact
   };
 
   $scope.createUser = function(user) {
-    $http.post('http://localhost:3000/users', {user: user})
+    $http.post('http://localhost:3000/users', {
+      user: {
+        first_name: user.first_name,
+        last_name: user.last_name,
+        role: user.role,
+        title_id: user.title_id,
+        skill_ids: $scope.getCheckedSkills()
+      }
+    })
     .success(function(response) {
       UserFactory.fetch();
-      $scope.user = {};
+      $scope.user = {skills:[]}
     });
   };
 
   $scope.updateUser = function(user) {
-    $http.put(('http://localhost:3000/users/' + user.id), {user: user})
+    $http.put(('http://localhost:3000/users/' + user.id), {
+      user: {
+        first_name: user.first_name,
+        last_name: user.last_name,
+        role: user.role,
+        title_id: user.title_id,
+        skill_ids: $scope.getCheckedSkills()
+      }
+    })
     .success(function(response) {
       UserFactory.fetch();
-      $scope.user = {};
+      $scope.user = {skills:[]}
     });
   };
 
